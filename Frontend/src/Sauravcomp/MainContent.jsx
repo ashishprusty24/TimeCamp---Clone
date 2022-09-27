@@ -47,7 +47,7 @@ const MainContent = () => {
     navigate("/auth/login");
   };
   const handleAccount = async()=>{
-    const data = loadData("userid")
+    const data = loadData("loginid")
 await axios.delete(`http://localhost:8080/userdata/${data}`);
 removeItem()
 await axios.delete(`http://localhost:8080/usercred/${data}`);

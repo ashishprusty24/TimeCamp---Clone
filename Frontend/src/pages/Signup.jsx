@@ -44,7 +44,7 @@ const Signup = () => {
         password: password,
       })
       .then((res) => {
-        localStorage.setItem("userid", JSON.stringify(res.data._id));
+        localStorage.setItem("loginid", JSON.stringify(res.data._id));
         dispatch(postauthsucces(res.data._id));
         navigate("/auth/login");
       })

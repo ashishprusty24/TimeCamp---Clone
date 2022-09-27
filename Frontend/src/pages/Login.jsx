@@ -47,26 +47,28 @@ const Login = () => {
   // console.log(222,data1);
   
   const handleclick = () => {
-    const d = loadData("userid");
-  if (d===null){
-    return alert("please sign up")
-  }
+  //   const d = loadData("userid");
+  // if (d===null){
+  //   return alert("please sign up")
+  // }
 
     //  axios.get("http://localhost:8080/usercred").then((r)=>console.log(r))
     dispatch(postauthloading());
     axios
-      .get(`http://localhost:8080/usercred/${d}`)
+      .get(`http://localhost:8080/usercred/${email}`)
       .then((res) => {
-        localStorage.setItem("loginid", JSON.stringify(res.data[0]._id));
-
-        dispatch(postauthsucces(res.data._id));
-        if (res.data[0]._id) {
+        if(res.data[0].password!=password){
+          alert("Please provide right credential");
+          console.log(password,res.data[0].password);
+        }else if (res.data[0]._id){
+      localStorage.setItem("loginid", JSON.stringify(res.data[0]._id));
+          dispatch(postauthsucces(res.data._id));
           setauth(true);
           navigate("/app");
+          console.log("yerrrrr");
         } else {
           console.log("norrrrr");
           navigate("/auth/login");
-          
         }
       })
       .catch((e) => {
