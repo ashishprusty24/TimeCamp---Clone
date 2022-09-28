@@ -6,7 +6,7 @@ TimeCamp is a web-based application launched in 2009 by Kamil Rudnicki, a progra
 
 
 
-Deploy link: https://timecamp.vercel.app/
+Deploy link: https://time-camp-clone.netlify.app/
 <h1>Some glimpse from our Website </h1>
 
 <h1>Home Page</h1>
